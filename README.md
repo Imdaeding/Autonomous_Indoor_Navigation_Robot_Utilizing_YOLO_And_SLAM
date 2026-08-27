@@ -17,12 +17,8 @@
 
 ## 2. 🏗️ System Architecture (시스템 구조)
 <!-- 시스템 블록 다이어그램, ROS 2 노드 통신 다이어그램, 또는 회로 블록도 삽입 -->
-```mermaid
-graph TD
-    A[Sensors: LiDAR / Camera] -->|Data Stream| B(Edge Computer: Jetson Orin)
-    B -->|Perception: YOLO & SLAM| C{Navigation / Path Planner}
-    C -->|Motor Command| D[Motor Driver / Actuators]
-```
+
+<img width="5440" height="4355" alt="다이어그램" src="https://github.com/user-attachments/assets/d06dea72-d2be-44d2-bb20-ea7864ce5c95" />
 
 
 ### 🛠 Tech Stack & Hardware Specs
