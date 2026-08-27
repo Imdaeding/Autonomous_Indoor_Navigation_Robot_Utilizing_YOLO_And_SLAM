@@ -2,7 +2,8 @@
 
 > **LiDAR SLAM 및 YOLOv11s 기반의 실내 자율주행 순찰 로봇 플랫폼**
 
-[![Platform](https://img.shields.io/badge/Platform-NVIDIA_Jetson_Orin-Nano-green.svg)](https://img.shields.io/badge/Platform-Waveshare-UGV02-green.svg)()
+[![Platform](https://img.shields.io/badge/Platform-NVIDIA_Jetson_Orin_Nano-green.svg)]()
+[![Platform](https://img.shields.io/badge/Platform-Waveshare_UGV02-green.svg)]()
 [![Framework](https://img.shields.io/badge/Framework-ROS_2_Humble-orange.svg)]()
 
 ---
