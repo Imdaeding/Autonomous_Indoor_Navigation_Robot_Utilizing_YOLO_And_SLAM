@@ -22,7 +22,7 @@ graph TD
     A[Sensors: LiDAR / Camera] -->|Data Stream| B(Edge Computer: Jetson Orin)
     B -->|Perception: YOLO & SLAM| C{Navigation / Path Planner}
     C -->|Motor Command| D[Motor Driver / Actuators]
-
+```
 
 
 ### 🛠 Tech Stack & Hardware Specs
