@@ -10,13 +10,13 @@
 
 ## 1. 📖 Project Overview (개요)
 * **개발 기간:** 2026.07 ~ 2025.08 (3인 팀 프로젝트)
-* **담당 역할:** (비전 파이프라인 최적화)
-* **목표 & 배경:** (해결하고자 했던 문제나 구현하고자 했던 핵심 시스템 목적 서술)
+* **담당 역할:** 비전 파이프라인 최적화
+* **목표 & 배경:** 산업 발전 속 노동자 안전 대응은 미흡하고, CCTV 등 수동적 감시는 사각지대가 많으며 공장 내부는 GPS 음영 구역이므로 스스로 위치를 추정하며 주행하는 SLAM 기술이 요구된다. 이에 본 과제는 카메라와 LiDAR 융합 및 SLAM 기반 위치 추정 기술을 적용하여, GPS 음영 환경에서도 능동적으로 사각지대를 탐색하고 위험 요소를 인지·경고하는 실내 자율주행 안전 순찰 로봇을 개발하고자 한다.
 
 ---
 
 ## 2. 🏗️ System Architecture (시스템 구조)
-<!-- 시스템 블록 다이어그램, ROS 2 노드 통신 다이어그램, 또는 회로 블록도 삽입 -->
+<!-- 시스템 블록 다이어그램 -->
 
 <img width="5440" height="4355" alt="다이어그램" src="https://github.com/user-attachments/assets/d06dea72-d2be-44d2-bb20-ea7864ce5c95" />
 
@@ -35,12 +35,12 @@
 
 ## 3. ⚙️ Key Features & Implementation (핵심 구현 내용)
 
-### 🔹 1) [핵심 기능 1: 예 - SLAM 맵핑 및 Navigation2 통합]
+### 🔹 1) [핵심 기능 1 : SLAM 맵핑 및 Navigation2 통합]
 
 * Cartographer를 활용한 실내 2D 점유 격자 지도(Occupancy Grid Map) 생성
 * Costmap 파라미터 튜닝을 통한 동적 장애물 회피 경로 계획 최적화
 
-### 🔹 2) [핵심 기능 2: 예 - 엣지 비전 파이프라인]
+### 🔹 2) [핵심 기능 2 : 엣지 비전 파이프라인]
 
 * Dual IMX219 카메라 입력
 * 1280*720의 DATASET을 직접 수집 및 YOLOv11s 모델로 학습
@@ -58,8 +58,13 @@
 ---
 
 ## 5. 🎬 Demo & Results (구동 영상 / 결과물)
+<!-- 객체 탐지 시뮬레이션 -->
 
 <img width="640" height="480" alt="poster_detection_sample" src="https://github.com/user-attachments/assets/b1ad9d2b-29d3-4b8c-8a33-b745fcd9af1a" />
+
+<!-- 전체 동작 영상 시연 -->
+
+[https://youtube.com/shorts/9DksMWg7Gh0?feature=share]
 
 ---
 
