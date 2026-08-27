@@ -75,15 +75,27 @@
 
 ## 6. 🚀 Getting Started (실행 방법)
 
-# 1. 저장소 클론
-git clone [https://github.com/사용자명/저장소명.git](https://github.com/사용자명/저장소명.git)
-cd 저장소명
+# 1. 사전 요구 환경 (Prerequisites)
+* **운영체제(OS):** Ubuntu 22.04 LTS (NVIDIA Jetson)
+* **미들웨어:** ROS 2 Humble & CycloneDDS (`rmw_cyclonedds_cpp`)
+* **SLAM 패키지:** Google Cartographer ROS 2 (`cartographer_ros`)
+* **비전 딥러닝:** Ultralytics YOLOv11 & PyTorch (CUDA 가속 활성화)
 
-# 2. 의존성 설치 및 빌드 (ROS 2 예시)
-colcon build --symlink-install
-source install/setup.bash
 
-# 3. 노드 실행
-ros2 launch my_robot_bringup bringup.launch.py
+# 2. 설치 및 환경 설정 (Installation & Setup)
+1. 저장소 클론
+git clone https://github.com/Imdaeding/Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM.git
+cd Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM
+
+2. 셸 스크립트 실행 권한 부여
+chmod +x start_autonomous.sh start_patrol_manual.sh
+
+# 3. 시스템 실행 (Running the System)
+Option A. 통합 2-Pass 전자동 주행 (권장 모드)
+./start_autonomous.sh
+> **자동 전환 시퀀스 안내:**
+> 1. **1차 주행 (Stage 1):** 벽 추종(Wall Following)으로 공간을 탐색하며 SLAM 지도 작성 및 시작점 복귀(Lap) 자동 감지
+> 2. **자동 모드 전환:** 맵(`.pbstream`)과 경로(`.csv`) 저장 후 위치 추정(Pure Localization) 모드로 자동 전환
+> 3. **2차 주행 (Stage 2):** 1차 경로 기반 Pure Pursuit 추종 시작 및 실시간 YOLO 장애물(박스/케이블) 감지·비상 정지 가동 [./start_patrol_manual.sh]
 
 ---
