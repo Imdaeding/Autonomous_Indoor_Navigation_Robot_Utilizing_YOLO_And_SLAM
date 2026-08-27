@@ -57,11 +57,11 @@
 ---
 
 ## 5. 🎬 Demo & Results (구동 영상 / 결과물)
-#객체 탐지 시뮬레이션
+# 객체 탐지 시뮬레이션
 
 <img width="640" height="480" alt="poster_detection_sample" src="https://github.com/user-attachments/assets/b1ad9d2b-29d3-4b8c-8a33-b745fcd9af1a" />
 
-#전체 동작 영상 시연
+# 구동 시연 영상
 
 [https://youtube.com/shorts/9DksMWg7Gh0?feature=share]
 
