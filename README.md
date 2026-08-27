@@ -63,7 +63,7 @@ graph TD
 
 ## 5. 🎬 Demo & Results (구동 영상 / 결과물)
 
-<img width="640" height="480" alt="poster_detection_sample" src="https://github.com/user-attachments/assets/030d8a74-1dbf-4407-9d5e-dffe5f8c7329" />
+<img width="640" height="480" alt="poster_detection_sample" src="https://github.com/user-attachments/assets/b1ad9d2b-29d3-4b8c-8a33-b745fcd9af1a" />
 
 ---
 
