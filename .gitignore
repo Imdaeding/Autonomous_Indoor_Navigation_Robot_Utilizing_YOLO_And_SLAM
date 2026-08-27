@@ -1,0 +1,17 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+.venv/
+env/
+
+# ROS / SLAM Logs & Large Bags
+two_pass_logs/
+*.log
+*.bag
+my_wall_mapping_data/
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
