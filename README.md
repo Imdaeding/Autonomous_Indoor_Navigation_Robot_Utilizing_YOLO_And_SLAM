@@ -40,6 +40,9 @@
 * Cartographer를 활용한 실내 2D 점유 격자 지도(Occupancy Grid Map) 생성
 * Costmap 파라미터 튜닝을 통한 동적 장애물 회피 경로 계획 최적화
 
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/29997910-ae38-48d7-8af3-ae66219a73b5" />
+
+
 ### 🔹 2) [핵심 기능 2 : 엣지 비전 파이프라인]
 
 * Dual IMX219 카메라 입력
@@ -54,6 +57,8 @@
 * **문제 현상:** YOLO 학습 데이터로 ROBOFLOW의  DATASET을 이용했지만, 화각 및 해상도가 설계 환경과 일치하지 않았음
 * **해결 방안:** 1280*720의 DATASET을 직접 수집 후 LabelImg를 통해 라벨링과 Bounding Box처리함
                 8:2의 test와 valid 데이터로 무작위 분할 후 그래픽카드 가속기를 사용해 YOLOv11s 모델로 학습 진행
+
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/8a9f813b-3d7d-4f0f-9cb3-3810a967d045" />
 
 ---
 
