@@ -55,8 +55,8 @@
 
 
 * **문제 현상:** YOLO 학습 데이터로 ROBOFLOW의  DATASET을 이용했지만, 화각 및 해상도가 설계 환경과 일치하지 않았음
-* **해결 방안:** 1280*720의 DATASET을 직접 수집 후 LabelImg를 통해 라벨링과 Bounding Box처리함
-                8:2의 test와 valid 데이터로 무작위 분할 후 그래픽카드 가속기를 사용해 YOLOv11s 모델로 학습 진행
+* **해결 방안:** 1280*720의 DATASET을 직접 수집 후 LabelImg를 통해 라벨링과 Bounding Box처리함.
+ 처리된 데이터를 8:2의 test와 valid 데이터로 무작위 분할 후 그래픽카드 가속기를 사용해 YOLOv11s 모델로 학습 진행
 
 <img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/8a9f813b-3d7d-4f0f-9cb3-3810a967d045" />
 
