@@ -2,8 +2,7 @@
 
 > **LiDAR SLAM 및 YOLOv11s 기반의 실내 자율주행 순찰 로봇 플랫폼**
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-NVIDIA_Jetson_Orin-green.svg)]()
+[![Platform](https://img.shields.io/badge/Platform-NVIDIA_Jetson_Orin-Nano-green.svg)](https://img.shields.io/badge/Platform-Waveshare-UGV02-green.svg)()
 [![Framework](https://img.shields.io/badge/Framework-ROS_2_Humble-orange.svg)]()
 
 ---
@@ -18,7 +17,7 @@
 ## 2. 🏗️ System Architecture (시스템 구조)
 <!-- 시스템 블록 다이어그램 -->
 
-<img width="5440" height="4355" alt="다이어그램" src="https://github.com/user-attachments/assets/d06dea72-d2be-44d2-bb20-ea7864ce5c95" />
+<img width="1280" height="720" alt="다이어그램" src="https://github.com/user-attachments/assets/d06dea72-d2be-44d2-bb20-ea7864ce5c95" />
 
 
 ### 🛠 Tech Stack & Hardware Specs
@@ -58,11 +57,11 @@
 ---
 
 ## 5. 🎬 Demo & Results (구동 영상 / 결과물)
-<!-- 객체 탐지 시뮬레이션 -->
+#객체 탐지 시뮬레이션
 
 <img width="640" height="480" alt="poster_detection_sample" src="https://github.com/user-attachments/assets/b1ad9d2b-29d3-4b8c-8a33-b745fcd9af1a" />
 
-<!-- 전체 동작 영상 시연 -->
+#전체 동작 영상 시연
 
 [https://youtube.com/shorts/9DksMWg7Gh0?feature=share]
 
