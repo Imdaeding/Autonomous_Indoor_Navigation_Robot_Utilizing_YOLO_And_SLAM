@@ -92,28 +92,33 @@ GPS 신호가 닿지 않는 실내 공장 환경에서 LiDAR SLAM을 통해 실�
 ## 6. 📂 Directory Structure (디렉토리 구조)
 
 ```
-plaintext
 Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM/
-├── launch/                       # ROS 2 시스템 전체 런치 파일
-│   ├── start_autonomous.launch.py # SLAM/Navigation 및 비전 파이프라인 통합 실행
-│   └── vision_safety.launch.py   # YOLOv11s 추론 및 비상 정지 노드 단독 실행
-├── src/
-│   ├── perception/               # 비전 AI & 객체 탐지 패키지
-│   │   ├── nodes/
-│   │   │   ├── yolo_detector_node.py # TensorRT 엔진 기반 실시간 객체 탐지
-│   │   │   └── safety_stop_node.py   # Bounding Box 분석 및 E-STOP 제어 로직
-│   │   └── models/               # 학습 가중치 및 엔진 파일 (.pt, .engine)
-│   ├── navigation/               # 자율주행 및 제어 패키지
-│   │   ├── config/               # Cartographer 및 Nav2 파라미터 YAML
-│   │   └── nodes/
-│   │       ├── wall_follower.py  # 1-Pass 벽면 추종 탐색 노드
-│   │       └── pure_pursuit.py   # 2-Pass 경로 추종 제어 노드
-│   └── chassis_bringup/          # UGV02 모터 드라이버 및 센서 인터페이스
-├── maps/                         # Cartographer 생성 지도 (.pbstream, .yaml, .pgm)
-├── scripts/                      # 원터치 실행 쉘 스크립트 (.sh)
-├── .gitignore
-├── requirements.txt
-└── README.md
+├── README.md                      # 프로젝트 소개 및 메인 문서
+├── .gitignore                     # Git 제외 목록 (로그, 가상환경, 임시파일)
+├── run_ugv02_autonomous.sh        # 2-Pass 전체 자동화 실행 셸 스크립트
+│
+├── assets/                        # README 및 보고서용 이미지
+│   ├── robot_overview.png         # 로봇 하드웨어 외관 사진
+│   ├── trajectory_plot.png        # MATLAB 추출 1·2차 궤적 비교 플롯
+│   └── poster_detection_sample.jpg# YOLO 객체 감지(Box/Cable) 샘플
+│
+├── src/                           # 핵심 ROS 2 파이썬 노드
+│   ├── wall_follow_node.py        # 1차 주행: 라이다 기반 벽 추종 및 Lap 감지
+│   ├── path_follow_node.py        # 2차 주행: 기록 경로 기반 Pure Pursuit 추종
+│   ├── yolo_safety_node.py        # 비전 안전: Dual CSI 카메라 객체 감지 & 비상 정지
+│   └── ugv02_serial_bridge.py     # 하드웨어 통신: ESP32 시리얼 통신 브릿지
+│
+├── config/                        # SLAM 및 알고리즘 설정 파일
+│   ├── cartographer_a1.lua        # 1차 매핑용 Cartographer 설정
+│   └── cartographer_localization.lua # 2차 순수 위치 추정용 설정
+│
+├── maps/                          # 생성된 지도 및 경로 데이터 샘플
+│   ├── factory_map.pbstream       # Cartographer 서브맵 데이터
+│   ├── patrol_path.csv            # 1차 주행에서 기록된 웨이포인트 경로
+│   └── README.md (선택)           # 맵 데이터 형식 설명
+│
+└── matlab/ (선택)                 # 데이터 분석 및 플롯 스크립트
+    └── plot_trajectory_and_map.m  # ROS 2 bag 기반 궤적 분석 코드
 ```
 ---
 
