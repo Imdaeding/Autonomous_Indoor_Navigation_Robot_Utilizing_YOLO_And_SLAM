@@ -89,19 +89,67 @@ GPS 신호가 닿지 않는 실내 공장 환경에서 LiDAR SLAM을 통해 실�
 
 ---
 
-## 6. 🚀 Getting Started (실행 방법)
+## 6. 📂 Directory Structure (디렉토리 구조)
 
-### 1. Prerequisites (사전 환경 요구사항)
-* **OS:** Ubuntu 22.04 LTS on Jetson Orin Nano
-* **ROS 2:** Humble Hawksbill with CycloneDDS (`rmw_cyclonedds_cpp`)
-* **SLAM:** `cartographer_ros`
-* **Deep Learning:** Python 3.10+, PyTorch (CUDA 지원), `ultralytics`
+```
+plaintext
+Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM/
+├── launch/                       # ROS 2 시스템 전체 런치 파일
+│   ├── start_autonomous.launch.py # SLAM/Navigation 및 비전 파이프라인 통합 실행
+│   └── vision_safety.launch.py   # YOLOv11s 추론 및 비상 정지 노드 단독 실행
+├── src/
+│   ├── perception/               # 비전 AI & 객체 탐지 패키지
+│   │   ├── nodes/
+│   │   │   ├── yolo_detector_node.py # TensorRT 엔진 기반 실시간 객체 탐지
+│   │   │   └── safety_stop_node.py   # Bounding Box 분석 및 E-STOP 제어 로직
+│   │   └── models/               # 학습 가중치 및 엔진 파일 (.pt, .engine)
+│   ├── navigation/               # 자율주행 및 제어 패키지
+│   │   ├── config/               # Cartographer 및 Nav2 파라미터 YAML
+│   │   └── nodes/
+│   │       ├── wall_follower.py  # 1-Pass 벽면 추종 탐색 노드
+│   │       └── pure_pursuit.py   # 2-Pass 경로 추종 제어 노드
+│   └── chassis_bringup/          # UGV02 모터 드라이버 및 센서 인터페이스
+├── maps/                         # Cartographer 생성 지도 (.pbstream, .yaml, .pgm)
+├── scripts/                      # 원터치 실행 쉘 스크립트 (.sh)
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+---
 
-### 2. Installation (설치)
-```bash
-# 1) 저장소 클론
+## 7. 🚀 Getting Started (실행 방법)
+1. Prerequisites (사전 환경 요구사항)
+```
+OS: Ubuntu 22.04 LTS on NVIDIA Jetson Orin Nano
+ROS 2: Humble Hawksbill with CycloneDDS (rmw_cyclonedds_cpp)
+SLAM / Nav: cartographer_ros, nav2_bringup
+Deep Learning: Python 3.10+, CUDA 12.2, TensorRT 8.6+, ultralytics
+```
+
+3. Installation & Build (설치 및 빌드)
+# 1) 워크스페이스 생성 및 저장소 클론
+```
+mkdir -p ~/robot_ws/src
+cd ~/robot_ws/src
 git clone [https://github.com/Imdaeding/Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM.git](https://github.com/Imdaeding/Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM.git)
-cd Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM
+```
 
-# 2) 실행 스크립트 권한 부여
-chmod +x start_autonomous.sh start_patrol_manual.sh
+# 2) ROS 2 의존성 설치 및 패키지 빌드
+```
+cd ~/robot_ws
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y
+colcon build --symlink-install
+source install/setup.bash
+```
+
+3. Execution (실행)
+# 1-Pass: 자율 매핑 및 경로 탐색
+```
+ros2 launch launch/start_autonomous.launch.py mode:=mapping
+```
+
+# 2-Pass: 정밀 위치 추정 및 비전 안전 순찰 주행
+```
+ros2 launch launch/start_autonomous.launch.py mode:=patrol
+```
