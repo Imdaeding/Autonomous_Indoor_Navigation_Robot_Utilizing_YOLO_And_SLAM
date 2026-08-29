@@ -118,7 +118,7 @@ Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM/
 ---
 
 ## 7. 🚀 Getting Started (실행 방법)
-# 1. Prerequisites (사전 환경 요구사항)
+## 1. Prerequisites (사전 환경 요구사항)
 ```
 OS: Ubuntu 22.04 LTS on NVIDIA Jetson Orin Nano
 ROS 2: Humble Hawksbill with CycloneDDS (rmw_cyclonedds_cpp)
@@ -126,7 +126,7 @@ SLAM / Nav: cartographer_ros, nav2_bringup
 Deep Learning: Python 3.10+, CUDA 12.2, TensorRT 8.6+, ultralytics
 ```
 
-# 2. Installation & Build (설치 및 빌드)
+## 2. Installation & Build (설치 및 빌드)
 1) 워크스페이스 생성 및 저장소 클론
 ```
 mkdir -p ~/robot_ws/src
@@ -143,7 +143,7 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 
-# 3. Execution (실행)
+## 3. Execution (실행)
 1-Pass: 자율 매핑 및 경로 탐색
 ```
 ros2 launch launch/start_autonomous.launch.py mode:=mapping
