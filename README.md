@@ -134,27 +134,21 @@ Deep Learning: Python 3.10+, CUDA 12.2, TensorRT 8.6+, ultralytics
 ## 2. Installation & Build (설치 및 빌드)
 1) 워크스페이스 생성 및 저장소 클론
 ```
-mkdir -p ~/robot_ws/src
-cd ~/robot_ws/src
 git clone [https://github.com/Imdaeding/Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM.git](https://github.com/Imdaeding/Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM.git)
+cd Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM
 ```
 
-2) ROS 2 의존성 설치 및 패키지 빌드
+2) 실행 권한 부여
 ```
-cd ~/robot_ws
-rosdep update
-rosdep install --from-paths src --ignore-src -r -y
-colcon build --symlink-install
-source install/setup.bash
+chmod +x run_ugv02_autonomous.sh
 ```
 
 ## 3. Execution (실행)
-1-Pass: 자율 매핑 및 경로 탐색
+2-Pass 전체 자율주행 및 비전 안전 순찰 통합 실행
 ```
-ros2 launch launch/start_autonomous.launch.py mode:=mapping
+./run_ugv02_autonomous.sh
 ```
-
-2-Pass: 정밀 위치 추정 및 비전 안전 순찰 주행
+## 4. Post-Drive Trajectory Analysis (MATLAB 분석)
 ```
-ros2 launch launch/start_autonomous.launch.py mode:=patrol
+run('matlab/plot_trajectory_and_map.m')
 ```
