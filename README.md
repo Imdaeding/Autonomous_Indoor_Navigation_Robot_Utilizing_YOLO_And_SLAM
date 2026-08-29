@@ -118,7 +118,7 @@ Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM/
 ---
 
 ## 7. 🚀 Getting Started (실행 방법)
-1. Prerequisites (사전 환경 요구사항)
+# 1. Prerequisites (사전 환경 요구사항)
 ```
 OS: Ubuntu 22.04 LTS on NVIDIA Jetson Orin Nano
 ROS 2: Humble Hawksbill with CycloneDDS (rmw_cyclonedds_cpp)
@@ -126,15 +126,15 @@ SLAM / Nav: cartographer_ros, nav2_bringup
 Deep Learning: Python 3.10+, CUDA 12.2, TensorRT 8.6+, ultralytics
 ```
 
-3. Installation & Build (설치 및 빌드)
-# 1) 워크스페이스 생성 및 저장소 클론
+# 2. Installation & Build (설치 및 빌드)
+1) 워크스페이스 생성 및 저장소 클론
 ```
 mkdir -p ~/robot_ws/src
 cd ~/robot_ws/src
 git clone [https://github.com/Imdaeding/Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM.git](https://github.com/Imdaeding/Autonomous_Indoor_Navigation_Robot_Utilizing_YOLO_And_SLAM.git)
 ```
 
-# 2) ROS 2 의존성 설치 및 패키지 빌드
+2) ROS 2 의존성 설치 및 패키지 빌드
 ```
 cd ~/robot_ws
 rosdep update
@@ -143,13 +143,13 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 
-3. Execution (실행)
-# 1-Pass: 자율 매핑 및 경로 탐색
+# 3. Execution (실행)
+1-Pass: 자율 매핑 및 경로 탐색
 ```
 ros2 launch launch/start_autonomous.launch.py mode:=mapping
 ```
 
-# 2-Pass: 정밀 위치 추정 및 비전 안전 순찰 주행
+2-Pass: 정밀 위치 추정 및 비전 안전 순찰 주행
 ```
 ros2 launch launch/start_autonomous.launch.py mode:=patrol
 ```
